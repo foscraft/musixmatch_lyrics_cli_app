@@ -37,7 +37,7 @@ in a local SQLite database.
 sudo pip3 install requests
 ```
 
-3. Enter you API key inside of api_lyrics.py
+3. Insert your API key inside of api_lyrics.py
 
 4. Run lyrics_finder.py
 
