@@ -7,6 +7,5 @@ c = conn.cursor()
 c.execute('''
           SELECT * FROM lyrics_table
           ''')
-
 df = pd.DataFrame(c.fetchall(), columns=['lyrics'])
 print (df)
