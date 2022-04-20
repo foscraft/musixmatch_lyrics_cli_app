@@ -16,7 +16,7 @@ def lyrics_finder():
     in a local SQLite database.
     '''
     artist_name = input("Whats's the name of the artist? > ")
-    track_name = input("What's the name of the track? > ")
+    track_name = input("What's the name of the song? > ")
     print('-----------------------------------------')
     api_call = base_url + lyrics_matcher + format_url + artist_search_parameter + artist_name + track_search_parameter + track_name + api_key
     request = requests.get(api_call)
@@ -29,7 +29,7 @@ def create_musixmatch_database():
     """
     Create a new database and lyrics table
     """
-    conn = sqlite3.connect('musixmatch_database') 
+    conn = sqlite3.connect('my_database') 
     c = conn.cursor()
     c.execute('''
             CREATE TABLE IF NOT EXISTS lyrics_table
@@ -39,7 +39,7 @@ def create_musixmatch_database():
    
 def load_song(song):
 
-    conn = sqlite3.connect('musixmatch_database') 
+    conn = sqlite3.connect('my_database') 
     c = conn.cursor()
     sql = ''' INSERT INTO lyrics_table VALUES(?) '''
     c.execute(sql, [song])             
