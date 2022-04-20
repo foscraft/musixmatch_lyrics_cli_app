@@ -33,9 +33,11 @@ in a local SQLite database.
 4. Install pandas from terminal
 
 
-```
-sudo pip3 install requests
-```
+
+        pip3 install requests
+        pip3 install sqlite3
+        pip3 install pandas
+
 
 3. Insert your API key inside of api_lyrics.py
 
