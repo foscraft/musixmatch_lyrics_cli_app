@@ -22,96 +22,44 @@ def lyrics_finder():
     request = requests.get(api_call)
     data = request.json()
     data = data['message']['body']
-    print(f"API Call: {api_call}")
-    print()
     return data['lyrics']['lyrics_body']
 
 
-def create_connection(song_db_file):
-    """ create a database connection to the SQLite database
-        specified by song_db_file
-    :param db_file: database file
-    :return: Connection object or None
+def create_musixmatch_database():
     """
-    conn = None
-    try:
-        conn = sqlite3.connect(song_db_file)
-    except Error as e:
-        print(e)
-
-    return conn
-
-
-def create_lyric_project(conn, lyric_project):
+    Create a new database and lyrics table
     """
-    Create a new project into the projects table
-    :param conn:
-    :param lyric_project:
-    :return: lyric_project id
-    """
-    sql = ''' INSERT INTO lyric_project(name,begin_date,end_date)
-              VALUES(?,?,?) '''
-    cur = conn.cursor()
-    cur.execute(sql, lyric_project)
+    conn = sqlite3.connect('musixmatch_database') 
+    c = conn.cursor()
+    c.execute('''
+            CREATE TABLE IF NOT EXISTS lyrics_table
+            ([lyrics] TEXT)
+            ''')                 
     conn.commit()
-    return cur.lastrowid
+   
+def load_song(song):
 
-
-def load_song(conn, songs):
-    """
-    load a new song into the songs table
-    :param conn:
-    :param songs:
-    :return:
-    """
-
-    '''
-    Pass  the returned lyrics
-    '''
-    
-    sql = ''' INSERT INTO songs(lyrics,name)
-              VALUES(?,?,?,?,?,?) '''
-    cur = conn.cursor()
-    cur.execute(sql, songs)
+    conn = sqlite3.connect('musixmatch_database') 
+    c = conn.cursor()
+    sql = ''' INSERT INTO lyrics_table VALUES(?) '''
+    c.execute(sql, [song])             
     conn.commit()
-    return cur.lastrowid
-
 
 def main():
     #reading the lyrics on cli
-    print(lyrics_finder())
+    song = lyrics_finder()
+    print(song)
     saving = input("Do you want to save the lyrics? (y/n): ")
     if saving == "y":
 
-        database = r"/home/foscraft/miniconda3/bin/sqlite3.db"
-
-        # creating a database connection
-        conn = create_connection(database)
-        with conn:
-            # creating a new lyric_project
-            lyric_project = ('Song lyrics finder with python sqlite3', '2022-04-14', '2022-04-22');
-            project_id = create_lyric_project(conn, lyric_project)
-
-            # songs
-            lyrics = lyrics_finder()
-            song = (lyrics)       
-
-            # load songs
-            load_song(conn, song)
-            print("Song lyrics saved, Bye!")
+        #create_musixmatch_database and lyrics table
+        create_musixmatch_database()
+        # adding song lyrics to table
+        load_song(song)
+        print("Song lyrics saved, Bye!")
     else:
         print("Thank you for using the app")
 
 
 if __name__ == '__main__':
     main()
-
-
-
-
-    # # check if the user wants to go again
-    # print()
-    # print("Again? (y/n)")
-    # again = input("> ")
-    # if again == "n":
-    #     break
