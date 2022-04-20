@@ -1,7 +1,7 @@
 import sqlite3
 import pandas as pd
 
-conn = sqlite3.connect('musixmatch_database') 
+conn = sqlite3.connect('my_database') 
 c = conn.cursor()
                    
 c.execute('''
