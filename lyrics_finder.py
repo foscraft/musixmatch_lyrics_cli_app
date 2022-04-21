@@ -1,5 +1,5 @@
 import requests
-from api_lyrics import *
+from api_lyrics import base_url, api_key, lyrics_matcher, format_url, artist_search_parameter, track_search_parameter
 import json
 import sqlite3
 from sqlite3 import Error
