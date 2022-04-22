@@ -1,5 +1,5 @@
 import requests
-from api_lyrics import base_url,lyrics_matcher, format_url, artist_search_parameter, track_search_parameter
+from api_lyrics import base_url,lyrics_matcher, format_url, artist_search, song_search
 from api_key import api_key
 import json
 from create_database import create_musixmatch_database, load_song
@@ -18,8 +18,8 @@ def lyrics_finder():
     artist_name = input("Whats's the name of the artist? > ")
     track_name = input("What's the name of the song? > ")
     print('-----------------------------------------')
-    api_call = base_url + lyrics_matcher + format_url + artist_search_parameter + artist_name + track_search_parameter + track_name + api_key
-    request = requests.get(api_call)
+    call = base_url + lyrics_matcher + format_url + artist_search + artist_name + song_search + track_name + api_key
+    request = requests.get(call)
     data = request.json()
     data = data['message']['body']
     return data['lyrics']['lyrics_body']

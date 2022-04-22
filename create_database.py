@@ -5,7 +5,7 @@ from sqlite3 import Error
 def create_musixmatch_database():
     """
     Create a new database and lyrics table for the application
-    -Pass a name of choice for your database below and 
+    -> Pass a name of choice for your database below and 
     table name of your choice.
     Both will be created on the fly.
     """
