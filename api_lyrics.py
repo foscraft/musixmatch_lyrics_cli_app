@@ -1,6 +1,7 @@
 #base url
 base_url = "https://api.musixmatch.com/ws/1.1/"
 
+
 # api method for getting lyrics
 lyrics_matcher = "matcher.lyrics.get"
 

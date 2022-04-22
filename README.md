@@ -39,7 +39,9 @@ in a local SQLite database.
         pip3 install pandas
 
 
-3. Insert your API key inside of api_lyrics.py
+3. Create a file api_key.py and pass you  API key inside of the file as below:
+
+        api_key = "&apikey=YOUR_API_KEY"        
 
 4. Run lyrics_finder.py
 
