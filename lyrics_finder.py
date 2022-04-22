@@ -2,7 +2,7 @@ import requests
 from api_lyrics import base_url,lyrics_matcher, format_url, artist_search, song_search
 from api_key import api_key
 import json
-from create_database import create_musixmatch_database, load_song
+from create_database import create_database,create_table, load_song
 
 def lyrics_finder():
 
@@ -32,10 +32,12 @@ def main():
     saving = input("Do you want to save the lyrics? (y/n): ")
     if saving == "y":
 
-        #create_musixmatch_database and lyrics table
-        create_musixmatch_database()
+        #create_musixmatch_database 
+        conn = create_database()
+        #creating lyrics table
+        create_table(conn)
         # adding song lyrics to table
-        load_song(song)
+        load_song(conn,song)
         print("Song lyrics saved, Bye!")
     else:
         print("Thank you for using the app")
