@@ -1,8 +1,8 @@
 import requests
-from api_lyrics import base_url, api_key, lyrics_matcher, format_url, artist_search_parameter, track_search_parameter
+from api_lyrics import base_url,lyrics_matcher, format_url, artist_search_parameter, track_search_parameter
+from api_key import api_key
 import json
-import sqlite3
-from sqlite3 import Error
+from create_database import create_musixmatch_database, load_song
 
 def lyrics_finder():
 
@@ -24,26 +24,6 @@ def lyrics_finder():
     data = data['message']['body']
     return data['lyrics']['lyrics_body']
 
-
-def create_musixmatch_database():
-    """
-    Create a new database and lyrics table
-    """
-    conn = sqlite3.connect('my_database') 
-    c = conn.cursor()
-    c.execute('''
-            CREATE TABLE IF NOT EXISTS lyrics_table
-            ([lyrics] TEXT)
-            ''')                 
-    conn.commit()
-   
-def load_song(song):
-
-    conn = sqlite3.connect('my_database') 
-    c = conn.cursor()
-    sql = ''' INSERT INTO lyrics_table VALUES(?) '''
-    c.execute(sql, [song])             
-    conn.commit()
 
 def main():
     #reading the lyrics on cli
