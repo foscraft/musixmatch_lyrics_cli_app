@@ -5,9 +5,8 @@ from sqlite3 import Error
 def create_database():
     """
     Create a new database and 
-    -> Pass a name of choice for your database below and 
-    table name of your choice.
-    Both will be created on the fly.
+    -> Pass a name of your choice for the database below.
+    DB Will be created on the fly.
     """
     conn = None
     try:
@@ -20,6 +19,8 @@ def create_database():
 def create_table(conn):
     '''
     Creating the lyrics table
+    -> Pass a name of your choice for the table.
+    Table will be created on the fly.
     '''
     c = conn.cursor()
     c.execute('''
