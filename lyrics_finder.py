@@ -40,6 +40,5 @@ def main():
     else:
         print("Thank you for using the app")
 
-
 if __name__ == '__main__':
     main()
