@@ -18,7 +18,7 @@ def lyrics_finder():
     You can ask a user whether they want to save their search results. If so, store the lyrics
     in a local SQLite database.
     '''
-    figs_cli()
+    print(figs_cli())
     artist_name = input("Whats's the name of the artist? > ")
     song_title = input("What's the name of the song? > ")
     print('-'*50)
