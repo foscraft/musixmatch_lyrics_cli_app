@@ -2,9 +2,12 @@ from calendar import c
 from re import M
 import unittest
 import sqlite3
+import requests
 from unittest.mock import MagicMock, Mock 
 from lyrics_finder import  lyrics_finder
 from create_database import create_database,create_table, load_song
+from api_lyrics import base_url,lyrics_matcher, format_url, artist_search, song_search
+from api_key import api_key
 
 class CliAppTests(unittest.TestCase):
 
@@ -21,7 +24,7 @@ class CliAppTests(unittest.TestCase):
         pass
 
     def test_lyrics_finder(self):
-        pass
+        self.assertTrue(lyrics_finder(),type(lyrics_finder())==dict)
 
 if __name__ == '__main__':
     unittest.main()
