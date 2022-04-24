@@ -3,7 +3,9 @@ import requests
 from api_key import api_key
 import json
 from create_database import create_database,create_table, load_song
-from api_lyrics import base_url,lyrics_matcher, format_url, artist_search, song_search
+from api_lyrics import base_url,lyrics_matcher, format_url, artist_search, song_search  
+from figlet import figs_cli
+
 
 def lyrics_finder():
 
@@ -16,6 +18,7 @@ def lyrics_finder():
     You can ask a user whether they want to save their search results. If so, store the lyrics
     in a local SQLite database.
     '''
+    figs_cli()
     artist_name = input("Whats's the name of the artist? > ")
     song_title = input("What's the name of the song? > ")
     print('-'*50)
