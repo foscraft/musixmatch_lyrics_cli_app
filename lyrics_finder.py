@@ -2,6 +2,7 @@ import requests
 
 from api_key import api_key
 import json
+from check_database_data import show_lyrics_in_db
 from create_database import create_database,create_table, load_song
 from api_lyrics import base_url,lyrics_matcher, format_url, artist_search, song_search  
 from figlet import figs_cli
@@ -44,7 +45,16 @@ def main():
         load_song(conn,song)
         print("Song lyrics saved, Bye!")
     else:
-        print("Thank you for using the app")
+        print("Bye!")
+
+    view = input('Would you like to see the lyrics in the database? (y/n)>')
+    if view == 'y':
+        print('Here are the lyrics in the database:')
+        print(show_lyrics_in_db())
+    else:
+        print('Thank you for using the app')
+
+    
 
 if __name__ == '__main__':
     main()
