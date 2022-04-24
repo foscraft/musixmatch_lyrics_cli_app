@@ -35,7 +35,7 @@ def main():
     song = lyrics_finder()
     print(song)
     saving = input("Do you want to save the lyrics? (y/n): ")
-    if saving == "y":
+    if saving in ['y','Y','yes','Yes','YES']:
 
         #create_musixmatch_database 
         conn = create_database()
@@ -48,13 +48,11 @@ def main():
         print("Bye!")
 
     view = input('Would you like to see the lyrics in the database? (y/n)>')
-    if view == 'y':
+    if view in ['y','Y','yes','Yes','YES']:
         print('Here are the lyrics in the database:')
         print(show_lyrics_in_db())
     else:
         print('Thank you for using the app')
-
-    
 
 if __name__ == '__main__':
     main()
