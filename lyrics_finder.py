@@ -1,8 +1,9 @@
 import requests
-from api_lyrics import base_url,lyrics_matcher, format_url, artist_search, song_search
+
 from api_key import api_key
 import json
 from create_database import create_database,create_table, load_song
+from api_lyrics import base_url,lyrics_matcher, format_url, artist_search, song_search
 
 def lyrics_finder():
 
@@ -16,9 +17,9 @@ def lyrics_finder():
     in a local SQLite database.
     '''
     artist_name = input("Whats's the name of the artist? > ")
-    track_name = input("What's the name of the song? > ")
-    print('-----------------------------------------')
-    call = base_url + lyrics_matcher + format_url + artist_search + artist_name + song_search + track_name + api_key
+    song_title = input("What's the name of the song? > ")
+    print('-'*50)
+    call = base_url + lyrics_matcher + format_url + artist_search + artist_name + song_search + song_title + api_key
     request = requests.get(call)
     data = request.json()
     data = data['message']['body']
