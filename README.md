@@ -50,4 +50,4 @@ in a local SQLite database.
 
 ![Fig: showing the screenshop of the CLI](./music.png)
 
-*Fig: Displaying Diamong, a song by Rihanna.*
+*Fig: Displaying Diamond lyrics, a song by Rihanna.*
