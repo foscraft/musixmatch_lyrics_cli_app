@@ -1,5 +1,4 @@
 import requests
-
 from api_key import api_key
 import json
 from check_database_data import show_lyrics_in_db

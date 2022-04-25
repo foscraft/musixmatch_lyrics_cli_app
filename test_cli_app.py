@@ -1,5 +1,4 @@
-from calendar import c
-from re import M
+import pandas as pd
 import unittest
 import sqlite3
 import requests
@@ -8,6 +7,7 @@ from lyrics_finder import  lyrics_finder
 from create_database import create_database,create_table, load_song
 from api_lyrics import base_url,lyrics_matcher, format_url, artist_search, song_search
 from api_key import api_key
+from check_database_data import show_lyrics_in_db
 
 class CliAppTests(unittest.TestCase):
 
@@ -30,6 +30,9 @@ class CliAppTests(unittest.TestCase):
         call = base_url + lyrics_matcher + format_url + artist_search + 'jay z' + song_search + '444' + api_key
         resp = requests.get(call)
         self.assertEqual(resp.status_code, 200)
+
+    def test_show_lyrics_in_db(self):
+        self.assertTrue(show_lyrics_in_db(), type(show_lyrics_in_db())==pd.DataFrame)
 
 if __name__ == '__main__':
     unittest.main()
