@@ -34,9 +34,8 @@ in a local SQLite database.
 
 
 
-        pip3 install requests
-        pip3 install sqlite3
-        pip3 install pandas
+    
+        pip3 install -r requirements.txt
 
 
 3. Create a file api_key.py and pass you  API key inside of the file as below:
@@ -46,3 +45,9 @@ in a local SQLite database.
 4. Run lyrics_finder.py
 
 5. Lastly run the check_database_data.py to view the lyrics table as a Dataframe.
+
+### How  the CLI app  will look like
+
+![Fig: showing the screenshop of the CLI](./music.png)
+
+*Fig: Displaying Diamong, a song by Rihanna.*
