@@ -26,7 +26,7 @@ in a local SQLite database.
 
 1. Download or clone the repository
 
-2. Intall requirements
+2. Install requirements
     
         pip3 install -r requirements.txt
 
