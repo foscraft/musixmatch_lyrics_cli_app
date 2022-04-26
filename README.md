@@ -26,14 +26,7 @@ in a local SQLite database.
 
 1. Download or clone the repository
 
-2. Install requests from terminal
-
-3. Install sqlite3 from terminal
-
-4. Install pandas from terminal
-
-
-
+2. Intall requirements
     
         pip3 install -r requirements.txt
 
