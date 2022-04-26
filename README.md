@@ -31,13 +31,15 @@ in a local SQLite database.
         pip3 install -r requirements.txt
 
 
-3. Create a file api_key.py and pass you  API key inside of the file as below:
+3. Create a file api_key.py and pass your  API key inside of the file as below:
 
         api_key = "&apikey=YOUR_API_KEY"        
 
-4. Run lyrics_finder.py
+4. Run 
 
-5. Lastly run the check_database_data.py to view the lyrics table as a Dataframe.
+        python lyrics_finder.py
+
+You will be prompted with a  menu of options to choose how you would like to proceed.
 
 ### How  the CLI app  will look like
 
