@@ -34,7 +34,11 @@ def lyrics_finder():
 def main():
     #reading the lyrics on cli
     song = lyrics_finder()
-    print(song)
+    if song is not None:
+        try:
+            print(song[2])
+        except TypeError:
+            print('song not found')
     saving = input("Do you want to save the lyrics? (y/n): ")
     if saving in ['y','Y','yes','Yes','YES']:
         #create_musixmatch_database 
@@ -42,7 +46,11 @@ def main():
         #creating lyrics table
         create_table(conn)
         # adding song lyrics to table
-        load_song(conn,song[0],song[1],song[2])
+        if song is not None:
+            try:
+                load_song(conn,song[0],song[1],song[2])
+            except TypeError:
+                print('no song to be save')
         print("Song lyrics saved, Bye!")
     else:
         print("Bye!")
