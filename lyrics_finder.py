@@ -25,9 +25,11 @@ def lyrics_finder():
     call = base_url + lyrics_matcher + format_url + artist_search + artist_name + song_search + song_title + api_key
     request = requests.get(call)
     data = request.json()
-    data = data['message']['body']
-    return data['lyrics']['lyrics_body']
-
+    data = data['message'].get('body')
+    if not data:
+        print('song not found')
+    else:
+        return data['lyrics']['lyrics_body']
 
 def main():
     #reading the lyrics on cli
