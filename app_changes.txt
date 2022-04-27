@@ -2,3 +2,7 @@ Print song not found if song not available. - DONE
 Ask user if they would like to search for other songs.
 Ask to save all songs to database.
 Database to have artist, song and song lyrics. - DONE
+
+api hiding packages.
+    - decaple
+    - dotenv
