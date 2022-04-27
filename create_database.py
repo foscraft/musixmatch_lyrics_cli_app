@@ -10,7 +10,7 @@ def create_database():
     """
     conn = None
     try:
-        conn = sqlite3.connect('skae_database')
+        conn = sqlite3.connect('new_database')
     except Error as e:
         print(e)
     return conn
@@ -25,15 +25,15 @@ def create_table(conn):
     c = conn.cursor()
     c.execute('''
             CREATE TABLE IF NOT EXISTS lyrics_table
-            ([lyrics] TEXT)
+            ([artist] TEXT, [title] TEXT, [lyrics] TEXT)
             ''')                 
     conn.commit()
 
    
-def load_song(conn,song):
+def load_song(conn,artist,title,song):
     '''
     Loading  the song into the table'''
     c = conn.cursor()
-    sql = ''' INSERT INTO lyrics_table VALUES(?) '''
-    c.execute(sql, [song])             
+    sql = ''' INSERT INTO lyrics_table VALUES(?,?,?) '''
+    c.execute(sql, [artist,title,song])             
     conn.commit()

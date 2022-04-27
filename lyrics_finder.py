@@ -19,22 +19,22 @@ def lyrics_finder():
     in a local SQLite database.
     '''
     print(figs_cli())
-    artist_name = input("Whats's the name of the artist? > ")
-    song_title = input("What's the name of the song? > ")
+    artist = input("Whats's the name of the artist? > ")
+    title = input("What's the name of the song? > ")
     print('-'*50)
-    call = base_url + lyrics_matcher + format_url + artist_search + artist_name + song_search + song_title + api_key
+    call = base_url + lyrics_matcher + format_url + artist_search + artist + song_search + title + api_key
     request = requests.get(call)
     data = request.json()
     data = data['message'].get('body')
     if not data:
         print('song not found')
     else:
-        return data['lyrics']['lyrics_body']
+        return [artist,title,data['lyrics']['lyrics_body']]
 
 def main():
     #reading the lyrics on cli
     song = lyrics_finder()
-    print(song)
+    print(song[2])
     saving = input("Do you want to save the lyrics? (y/n): ")
     if saving in ['y','Y','yes','Yes','YES']:
 
@@ -43,7 +43,7 @@ def main():
         #creating lyrics table
         create_table(conn)
         # adding song lyrics to table
-        load_song(conn,song)
+        load_song(conn,song[0],song[1],song[2])
         print("Song lyrics saved, Bye!")
     else:
         print("Bye!")
