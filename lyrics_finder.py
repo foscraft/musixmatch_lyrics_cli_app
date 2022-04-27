@@ -34,7 +34,7 @@ def lyrics_finder():
 def main():
     #reading the lyrics on cli
     song = lyrics_finder()
-    print(song[2])
+    print(song)
     saving = input("Do you want to save the lyrics? (y/n): ")
     if saving in ['y','Y','yes','Yes','YES']:
         #create_musixmatch_database 
@@ -46,7 +46,7 @@ def main():
         print("Song lyrics saved, Bye!")
     else:
         print("Bye!")
-        
+
     view = input('Would you like to see the lyrics in the database? (y/n)>')
     if view in ['y','Y','yes','Yes','YES']:
         print('Here are the lyrics in the database:')

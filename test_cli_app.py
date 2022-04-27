@@ -26,7 +26,7 @@ class CliAppTests(unittest.TestCase):
         pass
 
     def test_lyrics_finder(self):
-        self.assertTrue(lyrics_finder(),type(lyrics_finder())==dict)
+        self.assertIsInstance(lyrics_finder(),dict)
         
     def test_status(self):
         call = base_url + lyrics_matcher + format_url + artist_search + 'jay z' + song_search + '444' + api_key

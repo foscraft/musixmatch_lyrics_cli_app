@@ -15,7 +15,6 @@ def create_database():
         print(e)
     return conn
 
-
 def create_table(conn):
     '''
     Creating the lyrics table
