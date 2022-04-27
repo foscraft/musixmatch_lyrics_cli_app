@@ -10,7 +10,7 @@ def create_database():
     """
     conn = None
     try:
-        conn = sqlite3.connect('my_database')
+        conn = sqlite3.connect('reuben_database')
     except Error as e:
         print(e)
     return conn
