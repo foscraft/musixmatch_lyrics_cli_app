@@ -3,3 +3,4 @@ pandas
 json
 requests
 figlet
+python-dotenv

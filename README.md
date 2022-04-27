@@ -31,7 +31,7 @@ in a local SQLite database.
         pip3 install -r requirements.txt
 
 
-3. Create a file api_key.py and pass your  API key inside of the file as below:
+3. Create a .env file and pass your  API key inside of the file as below:
 
         api_key = "&apikey=YOUR_API_KEY"        
 

@@ -1,10 +1,16 @@
 import requests
-from api_key import api_key
 import json
 from check_database_data import show_lyrics_in_db
 from create_database import create_database,create_table, load_song
 from api_lyrics import base_url,lyrics_matcher, format_url, artist_search, song_search  
 from figlet import figs_cli
+
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+api_key = os.getenv('api_key')
 
 
 def lyrics_finder():
