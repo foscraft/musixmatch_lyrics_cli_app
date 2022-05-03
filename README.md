@@ -43,6 +43,11 @@ You will be prompted with a  menu of options to choose how you would like to pro
 
 ### How  the CLI app  will look like
 
-![Fig: showing the screenshop of the CLI](./music.png)
+![Fig: showing the screenshot of the CLI](./reu.png)
 
-*Fig: Displaying Diamond lyrics, a song by Rihanna.*
+*Fig: Displaying 'midnight train' lyrics, a song by Sauti Sol Band.*
+
+
+![Fig: showing the screenshot of the lyrics in database](./fos.png)
+
+*Fig: Displaying lyrics in database*
