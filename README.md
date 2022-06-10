@@ -27,15 +27,33 @@ in a local SQLite database.
 1. Download or clone the repository
 
 2. Install requirements
-    
+
         pip3 install -r requirements.txt
 
 
-3. Create a .env file and pass your  API key inside of the file as below:
+Create a .env file and pass your  API key inside of the file as below:
 
-        api_key = "&apikey=YOUR_API_KEY"        
+        api_key = "&apikey=YOUR_API_KEY"
 
-4. Run 
+ base url
+
+        base_url = "https://api.musixmatch.com/ws/1.1/"
+
+api method for getting lyrics
+
+        lyrics_matcher = "matcher.lyrics.get"
+
+format url
+
+        format_url = "?format=json&callback=callback"
+
+parameters
+
+        artist_search = "&q_artist="
+
+        song_search = "&q_track="
+
+4. Run
 
         python lyrics_finder.py
 
@@ -50,4 +68,4 @@ You will be prompted with a  menu of options to choose how you would like to pro
 
 ![Fig: showing the screenshot of the lyrics in database](./fos.png)
 
-*Fig: Displaying lyrics in database*
+*Fig: Displaying lyrics in database table*
